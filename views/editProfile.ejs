@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini_Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="w-screen min-h-screen text-white bg-gray-700">
+        <div class="w-full p-5 mb-3 flex items-center justify-between gap-20">
+            <h1 class="text-2xl font-bold ">Edit Post</h1>
+            <div class="flex items-center justify-center gap-20">
+                <a href="/home" class="text-lg font-medium">Home</a>
+                <a href="/profile" class="text-lg font-medium">Profile</a>
+                <a href="/feed" class="text-lg font-medium">Feed</a>
+                <a href="/logout" class="bg-blue-700 px-3 py-2 rounded-lg font-semibold">Log Out</a>
+            </div>
+        </div>
+        <div>
+
+            <form action="/editProfile" method="post" class="w-full flex flex-col items-center bg-gray-800 py-5 justify-center shadow-2xl">
+                <div class="w-3/4 flex flex-col mt-3 mb-1">
+                    <label for="username" class="pb-2">UserName:</label>
+                    <input type="text" class="bg-gray-600 outline-none p-2 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+                    disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                    invalid:border-pink-500 invalid:text-pink-600
+                    focus:invalid:border-pink-500 focus:invalid:ring-pink-500" name="username" id="username" placeholder="Enter userName" value="<%= userProfile.username %>">
+                </div>
+                <div class="w-3/4 flex flex-col mt-3 mb-1">
+                    <label for="name" class="pb-2">Name:</label>
+                    <input type="text" class="bg-gray-600 outline-none p-2 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+                    disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                    invalid:border-pink-500 invalid:text-pink-600
+                    focus:invalid:border-pink-500 focus:invalid:ring-pink-500" name="name" id="name" placeholder="Enter Name" value="<%= userProfile.name %>">
+                </div>
+                <div class="w-3/4 flex flex-col mt-3 mb-1">
+                    <label for="image" class="pb-2">Image Url:</label>
+                    <input type="text" class="bg-gray-600 outline-none p-2 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+                    disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                    invalid:border-pink-500 invalid:text-pink-600
+                    focus:invalid:border-pink-500 focus:invalid:ring-pink-500" name="image" id="image" placeholder="Enter Name" value="<%= userProfile.image %>">
+                </div>
+                <!-- <div class="w-3/4 flex flex-col mt-3 mb-8">
+                    <label for="userage" class="pb-2">Age:</label>
+                    <input type="number" class="bg-gray-600 outline-none p-2 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+                    disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                    invalid:border-pink-500 invalid:text-pink-600
+                    focus:invalid:border-pink-500 focus:invalid:ring-pink-500" name="userage" id="userage" placeholder="Enter age" value="<%= userProfile.age %>">
+                </div> -->
+                <div>
+                    <button type="submit" class="bg-blue-700 font-medium text-sm px-3 py-2 rounded-lg shadow-lg transition-all duration-400 hover:scale-125">Edit Profile</button>
+                </div>
+
+
+
+
+           
+        </div>
+    </div>
+</body>
+</html>

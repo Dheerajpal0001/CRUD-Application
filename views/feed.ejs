@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini_Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Optional: Styling for hidden class */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="min-h-screen text-white bg-gray-700 flex items-center flex-col">
+        <div class="w-full flex items-center justify-between p-5 mb-3">
+            <h1 class="text-2xl font-bold">Feed Page</h1>
+
+            <div class="flex items-center justify-center gap-20 flex-wrap">
+                <!-- Desktop Menu Links -->
+                <a href="/home" class="text-lg font-medium max-sm:hidden">Home</a>
+                <a href="/profile" class="text-lg font-medium max-sm:hidden">Profile</a>
+                <a href="/feed" class="text-lg font-medium max-sm:hidden">Feed</a>
+                <a href="/logout" class="bg-blue-700 px-3 py-2 rounded-lg font-semibold max-sm:hidden">Log Out</a>
+
+                <!-- Mobile Menu Button -->
+                <div class="text-lg font-medium sm:hidden">
+                    <i class="ri-menu-5-line cursor-pointer" id="menu-button"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="flex flex-col items-center gap-4 mt-4 sm:hidden hidden">
+            <a href="/home" class="text-lg font-medium">Home</a>
+            <a href="/profile" class="text-lg font-medium">Profile</a>
+            <a href="/feed" class="text-lg font-medium">Feed</a>
+            <a href="/logout" class="bg-blue-700 px-3 py-2 rounded-lg font-semibold">Log Out</a>
+        </div>
+
+        <div class="min-h-screen w-full">
+            <h1 class="text-3xl font-semibold p-7">Posts Of All Users</h1>
+            <div class="min-h-auto flex items-center justify-center gap-10 flex-wrap p-10">
+                <!-- Post snippet -->
+                <div
+                    class="posts sm:w-[100%] max-sm:w-full border-2 border-white rounded-lg bg-gray-800 flex items-center justify-center p-5 max-sm:flex-col">
+                    <img src="https://th.bing.com/th?id=OIP.vfcvQrpunU1akdpD-BuCpgHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2"
+                        alt="" class="pb-2 rounded-lg sm:w-[200px] sm:h-[180px]">
+                    <div class="sm:px-5 sm:w-[90%] sm:flex sm:flex-col ms:items-center justify-start">
+                        <h1 class="align-baseline pb-1 text-lg font-medium">luffy</h1>
+                        <p class="pb-3">Lorem ipsum dolor sit ame0 Lorem ipsum, dolor sit amet consectetur adipisicing
+                            elit. Optio
+                            harum odit sed, voluptates illum quia sint eaque velit autem ratione magni quasi ut laborum
+                            iure laudantium modi ea nisi dolores.</p>
+                        <!-- <div>
+                <a href="/editPost" class="tracking-wide bg-blue-700 px-3 py-2 rounded-lg mr-2">Edit Post</a>
+                <a href="/postDelete" class="tracking-wide bg-blue-700 px-3 py-2 rounded-lg mr-2">Delete Post</a>
+                <a href=""><button class="tracking-wide bg-blue-700 px-3 py-2 rounded-lg">Like</button></a>
+            </div> -->
+                    </div>
+                </div>
+
+                <!-- Post snippets will be inserted here -->
+                <% if (FeedPosts.length> 0) { %>
+                    <% FeedPosts.forEach((val)=> { %>
+                        <div
+                            class="posts sm:w-[100%] max-sm:w-full border-2 border-white rounded-lg bg-gray-800 flex items-center justify-center p-5 max-sm:flex-col">
+                            <img src="<%= val.image %>" alt="" class="pb-1 rounded-lg sm:w-[200px] sm:h-[180px]">
+                            <div class="sm:px-5 sm:w-[90%] sm:flex sm:flex-col ms:items-center justify-start">
+                                <h1 class="align-baseline pb-2 text-lg font-medium">
+                                    <%= val.title %>
+                                </h1>
+                                <p class="pb-3">
+                                    <%= val.description %>
+                                </p>
+                            </div>
+                        </div>
+                        <% }) %>
+                            <% } else { %>
+                                <h1>Not Created Any Post yet</h1>
+                                <% } %>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to toggle menu visibility
+        document.getElementById('menu-button').addEventListener('click', function () {
+            var menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>

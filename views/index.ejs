@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini_Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="min-h-screen text-white bg-gray-700 flex items-center flex-col">
+        <div class="w-full flex items-center justify-between p-5 mb-3">
+            <h1 class="text-4xl font-bold">Register</h1>
+            <a href="/login"><button class="bg-blue-700 font-medium text-sm px-3 py-2 rounded-lg shadow-lg">Log In</button></a>
+        </div>
+        <div class="w-[100%] sm:w-[50%] flex items-center justify-center bg-gray-800  rounded-xl mb-5">
+            <form action="/register" method="post" class="w-full flex flex-col items-center py-5 justify-center shadow-2xl">
+                <div class="w-3/4 flex flex-col mt-3 mb-1">
+                    <label for="username" class="pb-2">UserName:</label>
+                    <input required type="text" class="bg-gray-600 outline-none p-2 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+                    disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                    invalid:border-pink-500 invalid:text-pink-600
+                    focus:invalid:border-pink-500  focus:invalid:ring-pink-500" name="username" id="username" placeholder="Enter userName">
+                </div>
+                <div class="w-3/4 flex flex-col mt-3 mb-1">
+                    <label for="name" class="pb-2">Name:</label>
+                    <input required type="text" class="bg-gray-600 outline-none p-2 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+                    disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                    invalid:border-pink-500 invalid:text-pink-600
+                    focus:invalid:border-pink-500 focus:invalid:ring-pink-500" name="name" id="name" placeholder="Enter Name">
+                </div>
+                <div class="w-3/4 flex flex-col mt-3 mb-1">
+                    <label for="image" class="pb-2">Image Url:</label>
+                    <input required type="text" class="bg-gray-600 outline-none p-2 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+                    disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                    invalid:border-pink-500 invalid:text-pink-600
+                    focus:invalid:border-pink-500 focus:invalid:ring-pink-500" name="image" id="image" placeholder="Enter Name">
+                </div>
+                <!-- <div class="w-3/4 flex flex-col mt-3 mb-1">
+                    <label for="userage" class="pb-2">Age:</label>
+                    <input required type="number" class="bg-gray-600 outline-none p-2 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+                    disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                    invalid:border-pink-500 invalid:text-pink-600
+                    focus:invalid:border-pink-500 focus:invalid:ring-pink-500" name="userage" id="userage" placeholder="Enter age">
+                </div> -->
+                <div class="w-3/4 flex flex-col mt-3 mb-1">
+                    <label for="useremail" class="pb-2">Email:</label>
+                    <input required type="email" class="bg-gray-600 outline-none p-2 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+                    disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                    invalid:border-pink-500 invalid:text-pink-600
+                    focus:invalid:border-pink-500 focus:invalid:ring-pink-500" name="useremail" id="useremail" placeholder="Enter Your Email">
+                </div>
+                <div class="w-3/4 flex flex-col mt-3 mb-8">
+                    <label for="userpassword" class="pb-2">Password:</label>
+                    <input required type="password" class="bg-gray-600 outline-none p-2 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+                    disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+                    invalid:border-pink-500 invalid:text-pink-600
+                    focus:invalid:border-pink-500 focus:invalid:ring-pink-500" name="userpassword" id="userpassword" placeholder="Enter Strong Password">
+                </div>
+                <div>
+                    <a href=""><button class="bg-blue-700 font-medium text-sm px-3 py-2 rounded-lg shadow-lg transition-all duration-400 hover:scale-125">Register</button></a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
