@@ -1,5 +1,13 @@
-# Ignore environment variables file
+# Node modules
+node_modules/
+
+# Logs
+*.log
+
+# Environment variables
 .env
 
-# Ignore node modules directory
-node_modules/
+# Build outputs
+dist/
+build/
+.vercel

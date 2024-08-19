@@ -143,7 +143,6 @@ app.get('/feed', async(req,res)=>{
 })
 
 
-
 function isLoggedIn(req,res,next){
     // console.log(req.cookies);
     if(req.cookies.token === ""){
