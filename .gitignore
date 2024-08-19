@@ -1,13 +1,16 @@
 # Node modules
 node_modules/
 
-# Logs
-*.log
-
 # Environment variables
 .env
+
+# Log files
+*.log
 
 # Build outputs
 dist/
 build/
-.vercel
+
+# OS-specific files
+.DS_Store
+Thumbs.db
