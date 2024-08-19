@@ -5,16 +5,18 @@ const jwt = require('jsonwebtoken');
 const userModel = require('./models/user');
 const postModel = require('./models/posts')
 const cookieParser = require('cookie-parser');
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
+const databaseConnection = require('./utils/database');
 // const user = require('./models/user');
 
+databaseConnection();
+dotenv.config();
 const app = express();
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
-dotenv.config();
 
 app.get('/',(req,res)=>{
     res.render("index")
@@ -153,7 +155,9 @@ function isLoggedIn(req,res,next){
     next();
 }
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT, ()=>{
+    console.log(`Server is running on port : ${process.env.PORT}`);
+})
 
 
 
