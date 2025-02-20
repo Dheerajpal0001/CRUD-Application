@@ -13,6 +13,7 @@ databaseConnection();
 dotenv.config();
 const app = express();
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -183,9 +184,17 @@ function isLoggedIn(req,res,next){
     next();
 }
 
-app.listen(process.env.PORT, ()=>{
-    console.log(`Server is running on port : ${process.env.PORT}`);
-})
+const PORT = process.env.PORT || 3000;
+
+// export app for vercel
+module.exports = app;
+
+// लिसनर को कंडिशनल बनाएं
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`Server is running on port: ${PORT}`);
+    });
+}
 
 
 
