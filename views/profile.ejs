@@ -44,9 +44,9 @@
                 <img src="<%= userdata.image %>"
                     class="m-5 w-[350px] h-[400px] rounded-xl max-sm:w-[150] max-sm:h-[200]" alt="">
                 <div class="relative m-5 top-50 text-2xl max-sm:text-sm">
-                    <h1 class="tracking-wide mb-5">Name: <b class="pl-1 uppercase">
+                    <!-- <h1 class="tracking-wide mb-5">Name: <b class="pl-1 uppercase">
                             <%= userdata.name %>
-                        </b></h1>
+                        </b></h1> -->
                     <h1 class="tracking-wide mb-5">Username: <b class="pl-1">
                             <%= userdata.username %>
                         </b></h1>
@@ -56,8 +56,9 @@
                     <h1 class="tracking-wide mb-5">Email: <b class="pl-1">
                             <%= userdata.email %>
                         </b></h1>
-                    <p class="tracking-wide mb-8">Description: <b class="pl-1">Wish me a Happy Birthday On 02
-                            October..</b></p>
+                    <p class="tracking-wide mb-8">Description: <b class="pl-1">
+                            <%= userdata.name %>
+                        </b></p>
                     <a href="/createPost" class="tracking-wide mb-5 bg-blue-700 text-xl px-3 py-2 rounded-lg">Create a
                         Post</a>
                     <a href="/editProfile" class="tracking-wide mb-5 bg-blue-700 text-xl px-3 py-2 rounded-lg">Edit
@@ -84,8 +85,8 @@
                     </div>
                 </div> -->
 
-                <% if(userdata.posts.length > 0){ %>
-                    <% userdata.posts.reverse().forEach((val) => { %>
+                <% if(userdata.posts.length> 0){ %>
+                    <% userdata.posts.reverse().forEach((val)=> { %>
                         <div
                             class="posts sm:w-[100%] max-sm:w-full border-2 border-white rounded-lg bg-gray-800 flex items-center justify-center p-5 max-sm:flex-col">
                             <img src="<%= val.image %>" alt="" class="pb-1 rounded-lg sm:w-[200px] sm:h-[180px]">
@@ -106,17 +107,17 @@
                                 </div>
                             </div>
                         </div>
-                    <% }) %>
-                <% } else { %>
-                    <h1>Not Created Any Post yet</h1>
-                <% } %>
+                        <% }) %>
+                            <% } else { %>
+                                <h1>Not Created Any Post yet</h1>
+                                <% } %>
             </div>
         </div>
     </div>
 
     <script>
         // JavaScript to toggle menu visibility
-        document.getElementById('menu-button').addEventListener('click', function() {
+        document.getElementById('menu-button').addEventListener('click', function () {
             var menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         });

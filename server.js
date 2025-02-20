@@ -123,18 +123,47 @@ app.post('/editPost/:postid', isLoggedIn, async(req,res)=>{
     res.redirect('/profile');
 })
 
+
 app.get('/editProfile', isLoggedIn, async (req,res)=>{
     let userProfile = await userModel.findOne({email: req.user.email})
     res.render('editProfile', {userProfile});
 
 })
 
-app.post('/editProfile', isLoggedIn, async (req,res)=>{
-    let {username, name, image, userage} = req.body; 
-    let userProfile = await userModel.findOneAndUpdate({username: username,  name: name, image: image, age: userage})
-    // console.log(userProfile);
-    res.redirect('/profile');
-})
+// app.post('/editProfile', isLoggedIn, async (req,res)=>{
+//     let {username, name, image, userage} = req.body; 
+//     let userProfile = await userModel.findOneAndUpdate({username: username,  name: name, image: image, age: userage})
+//     // console.log(userProfile);
+//     res.redirect('/profile');
+// })
+
+
+
+app.post('/editProfile', isLoggedIn, async (req, res) => {
+    const { username, name, image, userage } = req.body;
+
+    try {
+        // Find the user by their email and update their profile
+        let updatedUser = await userModel.findOneAndUpdate(
+            { email: req.user.email }, 
+            { username: username, name: name, image: image, age: userage }, 
+        );
+
+        // If the user was found and updated
+        if (updatedUser) {
+            // console.log('Profile updated successfully:', updatedUser);
+            res.redirect('/profile');
+        } else {
+            console.log('User not found');
+            res.redirect('/editProfile');
+        }
+    } catch (error) {
+        console.error('Error updating profile:', error);
+        res.redirect('/editProfile');
+    }
+});
+
+
 
 
 app.get('/feed', async(req,res)=>{
